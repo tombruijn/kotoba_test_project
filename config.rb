@@ -7,12 +7,27 @@ Kotoba.config do |config|
   config.export_to :pdf
   # config.export_to :text
 
-  config.layout_for 1 do |l|
-    l.width = 20.cm
-    l.height = 40.cm
+  config.layout_for 135 do |l|
+    l.header do |h|
+      h.color = "FF0000"
+      h.page_numbering do |n|
+        n.active = true
+        n.align = :center
+        n.string = "last header <page> of <total>"
+      end
+
+      h.content do |prawn|
+        prawn.text "I'm the last header", :align => :left
+      end
+    end
+  end
+
+  config.layout_for 1..2 do |l|
+    l.width = 40.cm
+    l.height = 30.cm
     l.margin do |m|
       m.top = 1.cm
-      m.bottom = 1.cm
+      m.bottom = 3.cm
       m.inner = 1.cm
       m.outer = 1.cm
     end
@@ -38,8 +53,27 @@ Kotoba.config do |config|
     end
 
     l.header do |h|
+      h.color = "FF0000"
       h.page_numbering do |n|
-        n.active = false
+        n.active = true
+        n.align = :center
+        n.string = "one header <page> of <total>"
+      end
+
+      h.content do |prawn|
+        prawn.text "I'm a one header", :align => :left
+      end
+    end
+    l.footer do |f|
+      f.color = "FF0000"
+      f.page_numbering do |n|
+        n.active = true
+        n.align = :center
+        n.string = "one footer <page> of <total>"
+      end
+
+      f.content do |prawn|
+        prawn.text "Hello one footer!", :align => :left
       end
     end
   end
@@ -75,8 +109,10 @@ Kotoba.config do |config|
     l.footer do |f|
       f.color = "FF0000"
       f.page_numbering do |n|
+        n.start_count_at = 10
         n.active = true
-        n.align = :right
+        n.align = :center
+        n.string = "footer: <page> of <total>"
       end
 
       f.content do |prawn|
@@ -84,9 +120,12 @@ Kotoba.config do |config|
       end
     end
     l.header do |h|
+      h.color = "FF0000"
       h.page_numbering do |n|
+        n.start_count_at = 10
         n.active = true
-        n.align = :right
+        n.align = :center
+        n.string = "header: <page> of <total>"
       end
       h.content do |prawn|
         prawn.text "I'm a header", :align => :left
