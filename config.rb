@@ -5,6 +5,7 @@ Kotoba.config do |config|
   config.authors = ["Tom de Bruijn"]
   config.filename = "test"
   config.export_to :pdf
+  config.chapter_on_new_page = true
   # config.export_to :text
 
   config.layout_for 135 do |l|
