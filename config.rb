@@ -6,6 +6,7 @@ Kotoba.config do |config|
   config.filename = "test"
   config.export_to :pdf
   config.chapter_on_new_page = true
+  config.section_spacing = 20.mm
   # config.export_to :text
   config.add_font "OpenSans", {
     normal: "OpenSans-Regular.ttf",
