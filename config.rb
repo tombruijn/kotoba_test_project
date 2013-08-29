@@ -43,7 +43,7 @@ Kotoba.config do |config|
       d.font = "Courier"
       d.color = "FF0000"
       d.size = 12.pt
-      d.line_height = 25.pt
+      d.line_height = 12.pt
     end
 
     l.paragraph do |p|
@@ -51,13 +51,25 @@ Kotoba.config do |config|
     end
 
     l.heading 1 do |h|
-      h.size = 30.pt
+      h.size = 40.pt
     end
     l.heading 2 do |h|
-      h.size = 20.pt
+      h.size = 34.pt
     end
     l.heading 3 do |h|
-      h.size = 10.pt
+      h.size = 28.pt
+    end
+
+    l.list do |li|
+      li.indent = 5.mm
+    end
+
+    l.code do |c|
+      c.indent = 10.mm
+    end
+
+    l.quote do |q|
+      q.indent = 20.mm
     end
 
     l.header do |h|
