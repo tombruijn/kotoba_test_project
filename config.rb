@@ -8,10 +8,10 @@ Kotoba.config do |config|
   config.chapter_on_new_page = true
   config.section_spacing = 20.mm
   # config.export_to :text
-  config.add_font "OpenSans", {
-    normal: "OpenSans-Regular.ttf",
-    italic: "OpenSans-Italic.ttf"
-  }
+  # config.add_font "OpenSans", {
+  #   normal: "OpenSans-Regular.ttf",
+  #   italic: "OpenSans-Italic.ttf"
+  # }
 
   config.layout_for 135 do |l|
     l.header do |h|
@@ -60,8 +60,14 @@ Kotoba.config do |config|
       h.size = 28.pt
     end
 
-    l.list do |li|
+    l.unordered_list do |li|
       li.indent = 5.mm
+      li.prefix = "-> "
+    end
+
+    l.ordered_list do |li|
+      li.indent = 5.mm
+      li.prefix = "{n}) "
     end
 
     l.code do |c|
@@ -109,7 +115,7 @@ Kotoba.config do |config|
     end
 
     l.default do |d|
-      d.font = "OpenSans"
+      # d.font = "OpenSans"
       d.color = "FF0000"
       d.size = 11.5.pt
       d.line_height = 13.pt
