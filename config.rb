@@ -7,15 +7,16 @@ Kotoba.config do |config|
   config.export_to :pdf
   config.chapter_on_new_page = true
   config.section_spacing = 20.mm
-  # config.export_to :text
-  # config.add_font "OpenSans", {
-  #   normal: "OpenSans-Regular.ttf",
-  #   italic: "OpenSans-Italic.ttf"
-  # }
+  config.add_font "OpenSans", {
+    normal: "OpenSans-Regular.ttf",
+    italic: "OpenSans-Italic.ttf",
+    bold: "OpenSans-Bold.ttf",
+    bold_italic: "OpenSans-BoldItalic.ttf"
+  }
 
   config.layout_for 135 do |l|
     l.header do |h|
-      h.font = "Courier"
+      h.font = "OpenSans"
       h.color = "FF0000"
       h.page_numbering do |n|
         n.active = true
@@ -40,7 +41,7 @@ Kotoba.config do |config|
     end
 
     l.default do |d|
-      d.font = "Courier"
+      d.font = "OpenSans"
       d.color = "FF0000"
       d.size = 12.pt
       d.line_height = 12.pt
@@ -115,7 +116,7 @@ Kotoba.config do |config|
     end
 
     l.default do |d|
-      # d.font = "OpenSans"
+      d.font = "OpenSans"
       d.color = "FF0000"
       d.size = 11.5.pt
       d.line_height = 13.pt
